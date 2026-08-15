@@ -2,63 +2,35 @@
 
 A full-stack SEO auditing platform that analyzes websites, identifies common SEO issues, provides actionable recommendations, and presents audit results through an interactive dashboard.
 
-## 🚀 Overview
+## 🚀 Live Demo
 
-SEO Audit Pro is a web application designed to help website owners and SEO learners understand the technical and on-page SEO health of a website.
+**Frontend:**
+https://seo-audit-pro-ruby.vercel.app
 
-Users can enter a website URL and generate an SEO audit containing important checks, an overall SEO score, issues, recommendations, and visual reports.
+**GitHub Repository:**
+https://github.com/divyasrikondetis-del/SEO-audit-pro
 
-The project combines a React frontend with a Node.js/Express backend and MongoDB database.
+> **Note:** The backend API is deployed separately and is required for authentication and SEO audit functionality.
 
 ## ✨ Features
 
-### 🔍 SEO Website Auditing
-
-* Analyze submitted website URLs
-* Crawl and inspect website HTML
-* Check important on-page SEO elements
-* Identify SEO issues
-* Generate actionable recommendations
-* Calculate an overall SEO score
-* Display detailed audit results
-
-### 📊 Dashboard & Reports
-
-* Interactive SEO dashboard
-* Audit history
-* SEO score visualization
-* Score breakdown
-* Charts and data visualization
-* SEO issue cards
-* Recommendations
-* Audit comparison
-* Detailed audit reports
-
-### 🔐 Authentication
-
-* User registration
-* User login
-* JWT-based authentication
-* Password hashing with bcrypt
-* Protected application features
-* Forgot-password functionality
-* Temporary password email functionality
-* Password reset flow
-
-### 🎨 User Interface
-
-* Responsive React interface
-* Tailwind CSS styling
-* Reusable UI components
-* Animated interactions with Framer Motion
-* Toast notifications
-* Responsive dashboard and reports
+* 🔍 Website SEO auditing
+* 📊 SEO score and score breakdown
+* 🚨 SEO issue detection
+* 💡 Actionable recommendations
+* 📈 Interactive audit charts
+* 📋 Detailed SEO reports
+* 🔄 Audit comparison
+* 🔐 User registration and login
+* 🔑 JWT authentication
+* 🔒 Password reset functionality
+* 📱 Responsive React interface
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 
-* React 19
+* React
 * Vite
 * React Router
 * Tailwind CSS
@@ -75,29 +47,59 @@ The project combines a React frontend with a Node.js/Express backend and MongoDB
 
 * Node.js
 * Express.js
-* Axios
-* Cheerio
-* CORS
-* dotenv
-* JWT
-* bcryptjs
-* Mongoose
-* Nodemailer
-
-### Database
-
 * MongoDB
 * Mongoose
+* Axios
+* Cheerio
+* JWT
+* bcryptjs
+* Nodemailer
+* CORS
+* dotenv
 
-### Development Tools
+## 🏗️ Architecture
 
-* Git
-* GitHub
-* VS Code
-* Nodemon
-* ESLint
+```text
+User
+  │
+  ▼
+React Frontend
+  │
+  │ API Requests
+  ▼
+Node.js + Express Backend
+  │
+  ├── Authentication
+  ├── URL Validation
+  ├── Website Fetching
+  ├── HTML Parsing
+  └── SEO Analysis
+  │
+  ▼
+MongoDB
+  │
+  ▼
+Audit Results
+  │
+  ▼
+Interactive Dashboard
+```
 
-## 🏗️ Project Architecture
+## 🔎 SEO Audit
+
+SEO Audit Pro analyzes submitted websites and evaluates important SEO factors such as:
+
+* Page title
+* Meta description
+* Headings
+* Links
+* Images
+* SEO-related HTML structure
+* Other technical and on-page SEO factors
+
+The system generates an overall score, detected issues, recommendations, and detailed reports.
+
+## 📂 Project Structure
 
 ```text
 SEO-audit-pro/
@@ -105,11 +107,7 @@ SEO-audit-pro/
 ├── client/
 │   ├── public/
 │   └── src/
-│       ├── assets/
 │       ├── components/
-│       │   ├── common/
-│       │   ├── layout/
-│       │   └── seo/
 │       ├── context/
 │       ├── hooks/
 │       ├── pages/
@@ -132,137 +130,104 @@ SEO-audit-pro/
 └── .gitignore
 ```
 
-## 🔄 How It Works
-
-```text
-User
-  │
-  ▼
-React Frontend
-  │
-  │ API Request
-  ▼
-Express Backend
-  │
-  ├── Authentication
-  │
-  ├── URL Validation
-  │
-  ├── Website Fetching
-  │
-  ├── HTML Parsing
-  │
-  └── SEO Analysis
-  │
-  ▼
-MongoDB
-  │
-  ▼
-Audit Results
-  │
-  ▼
-Interactive Dashboard
-```
-
-## 🔎 SEO Audit Process
-
-The backend uses HTTP requests and HTML parsing to inspect submitted websites.
-
-The audit service processes website information and evaluates SEO-related factors before generating the audit result.
-
-The application then presents the results through:
-
-* Overall SEO score
-* Individual SEO checks
-* Detected issues
-* Recommendations
-* Score breakdown
-* Charts
-* Detailed reports
-
 ## 💻 Local Development
 
-### 1. Clone the repository
+### Clone
 
 ```bash
 git clone https://github.com/divyasrikondetis-del/SEO-audit-pro.git
 cd SEO-audit-pro
 ```
 
-### 2. Install frontend dependencies
+### Frontend
 
 ```bash
 cd client
 npm install
-```
-
-### 3. Start the frontend
-
-```bash
 npm run dev
 ```
 
-### 4. Install backend dependencies
+### Backend
 
 Open another terminal:
 
 ```bash
 cd server
 npm install
-```
-
-### 5. Configure environment variables
-
-Create:
-
-```text
-server/.env
-```
-
-and add the required configuration.
-
-### 6. Start the backend
-
-Development:
-
-```bash
 npm run dev
 ```
 
-Production:
+## 🔐 Environment Variables
 
-```bash
-npm start
+Environment variables are intentionally **not committed to GitHub**.
+
+Create `server/.env` locally:
+
+```env
+PORT=5001
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRE=7d
 ```
 
-## 📌 Current Project Status
+If email functionality is enabled:
 
-The project is currently under active development.
+```env
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your_email
+EMAIL_PASS=your_app_password
+```
+
+For production, configure these values through your hosting provider's environment-variable settings.
+
+## ☁️ Deployment
+
+### Frontend
+
+The frontend is deployed with Vercel:
+
+**https://seo-audit-pro-ruby.vercel.app**
+
+### Backend
+
+The backend is deployed separately as a Node.js/Express web service.
+
+Production environment variables are configured through the hosting platform rather than committed to the repository.
+
+## 📌 Project Status
+
+The project is actively developed as a personal portfolio and learning project.
 
 ### Completed
 
 * Full-stack React + Express architecture
 * User authentication
 * SEO audit workflow
-* SEO score and issue reporting
+* SEO scoring
+* Issue detection
+* Recommendations
 * Audit dashboard
 * Audit reports
 * Data visualization
 * Password reset flow
 * MongoDB integration
 * GitHub repository
+* Production frontend deployment
 
 ## 🎯 Purpose
 
-SEO Audit Pro was developed as a practical project to combine:
+SEO Audit Pro was developed to combine practical experience in:
 
-* SEO knowledge
-* Web development
 * Technical SEO
-* Data analysis
-* API development
-* Database management
-* User authentication
+* On-page SEO
+* React development
+* Node.js backend development
+* REST APIs
+* MongoDB
+* Authentication
+* Data visualization
+* Full-stack application development
 
 ## 📄 License
 
