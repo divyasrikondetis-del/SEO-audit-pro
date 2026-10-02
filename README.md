@@ -172,20 +172,6 @@ EMAIL_PASS=your_app_password
 
 For production, configure these values through your hosting provider's environment-variable settings.
 
-## ☁️ Deployment
-
-### Frontend
-
-The frontend is deployed with Vercel:
-
-**https://seo-audit-pro-ruby.vercel.app**
-
-### Backend
-
-The backend is deployed separately as a Node.js/Express web service.
-
-Production environment variables are configured through the hosting platform rather than committed to the repository.
-
 ## 📌 Project Status
 
 The project is actively developed as a personal portfolio and learning project.
