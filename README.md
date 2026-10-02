@@ -2,15 +2,6 @@
 
 A full-stack SEO auditing platform that analyzes websites, identifies common SEO issues, provides actionable recommendations, and presents audit results through an interactive dashboard.
 
-## 🚀 Live Demo
-
-**Frontend:**
-https://seo-audit-pro-ruby.vercel.app
-
-**GitHub Repository:**
-https://github.com/divyasrikondetis-del/SEO-audit-pro
-
-> **Note:** The backend API is deployed separately and is required for authentication and SEO audit functionality.
 
 ## ✨ Features
 
